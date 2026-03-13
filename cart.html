@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cart — Sharon's Online Shopping System</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <div class="nav-logo-icon"><i class="fa-solid fa-bolt"></i></div>
+      Sharon's <span>Shop</span>
+    </a>
+    <div class="nav-links">
+      <a href="index.html" class="nav-link"><i class="fa-solid fa-house"></i> Home</a>
+      <a href="products.html" class="nav-link"><i class="fa-solid fa-grid-2"></i> Products</a>
+      <a href="categories.html" class="nav-link"><i class="fa-solid fa-list"></i> Categories</a>
+      <a href="cart.html" class="nav-link"><i class="fa-solid fa-shopping-cart"></i> Cart</a>
+      <a href="profile.html" class="nav-link"><i class="fa-solid fa-user"></i> Profile</a>
+    </div>
+    <div class="nav-actions">
+      <div class="search-wrap">
+        <i class="fa-solid fa-search"></i>
+        <input type="text" id="global-search" placeholder="Search products…" />
+      </div>
+      <a href="cart.html" class="cart-btn">
+        <i class="fa-solid fa-shopping-cart"></i>
+        <span class="cart-badge cart-count">0</span>
+      </a>
+      <button class="theme-btn" title="Toggle theme"><i class="fa-solid fa-moon"></i></button>
+      <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+
+<div class="mobile-nav" id="mobile-nav">
+  <a href="index.html" class="nav-link"><i class="fa-solid fa-house"></i> Home</a>
+  <a href="products.html" class="nav-link"><i class="fa-solid fa-grid-2"></i> Products</a>
+  <a href="categories.html" class="nav-link"><i class="fa-solid fa-list"></i> Categories</a>
+  <a href="cart.html" class="nav-link"><i class="fa-solid fa-shopping-cart"></i> Cart</a>
+  <a href="profile.html" class="nav-link"><i class="fa-solid fa-user"></i> Profile</a>
+</div>
+
+<div class="toast-container" id="toast-container"></div>
+
+<div class="page-wrapper">
+
+  <div class="page-hero">
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="index.html">Home</a>
+        <i class="fa-solid fa-chevron-right"></i>
+        <span>Cart</span>
+      </div>
+      <h1><i class="fa-solid fa-shopping-cart" style="color:var(--accent);margin-right:12px"></i>My Cart</h1>
+      <p>Review your items before checkout.</p>
+    </div>
+  </div>
+
+  <div class="container" style="padding-bottom:60px">
+
+    <!-- Empty State -->
+    <div id="cart-empty" class="empty-cart" style="display:none">
+      <i class="fa-solid fa-cart-shopping"></i>
+      <h3>Your cart is empty</h3>
+      <p>Looks like you haven't added anything yet.</p>
+      <a href="products.html" class="btn btn-primary btn-lg"><i class="fa-solid fa-bag-shopping"></i> Start Shopping</a>
+    </div>
+
+    <!-- Cart Layout -->
+    <div class="cart-layout">
+      <!-- Items -->
+      <div>
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:20px">
+          <h2 style="font-size:1.1rem" id="cart-count-label">0 item(s)</h2>
+          <button onclick="clearAllCart()" class="btn btn-secondary btn-sm" id="clear-btn">
+            <i class="fa-solid fa-trash"></i> Clear All
+          </button>
+        </div>
+        <div id="cart-items"></div>
+      </div>
+
+      <!-- Summary -->
+      <div id="cart-summary" class="cart-summary" style="display:none">
+        <h3><i class="fa-solid fa-receipt" style="color:var(--accent);margin-right:8px"></i>Order Summary</h3>
+        <div class="summary-row">
+          <span>Subtotal</span>
+          <span id="cart-subtotal">R0</span>
+        </div>
+        <div class="summary-row">
+          <span>Shipping</span>
+          <span id="cart-shipping">—</span>
+        </div>
+        <div style="background:var(--accent-light);border-radius:8px;padding:10px 14px;font-size:0.8rem;color:var(--accent);margin-bottom:12px">
+          <i class="fa-solid fa-truck" style="margin-right:6px"></i>Free shipping on orders over R5,000
+        </div>
+        <div class="summary-divider"></div>
+        <div class="summary-row summary-total">
+          <span>Total</span>
+          <span id="cart-total">R0</span>
+        </div>
+        <a href="checkout.html" class="btn btn-primary w-full" style="margin-top:16px;justify-content:center;display:flex">
+          <i class="fa-solid fa-lock"></i> Proceed to Checkout
+        </a>
+        <a href="products.html" class="btn btn-secondary w-full" style="margin-top:10px;justify-content:center;display:flex">
+          <i class="fa-solid fa-arrow-left"></i> Continue Shopping
+        </a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-bottom">
+      <span>© 2025 Sharon's Online Shopping System. All rights reserved.</span>
+      <a href="index.html" style="color:var(--text-muted);font-size:0.82rem"><i class="fa-solid fa-arrow-left" style="margin-right:6px"></i>Back to Home</a>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+<script>
+  function clearAllCart() {
+    if (getCart().length === 0) return;
+    clearCart();
+    renderCart();
+    showToast('Cart cleared', 'info');
+  }
+</script>
+</body>
+</html>

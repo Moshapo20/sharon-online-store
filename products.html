@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Products — Sharon's Online Shopping System</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <div class="nav-logo-icon"><i class="fa-solid fa-bolt"></i></div>
+      Sharon's <span>Shop</span>
+    </a>
+    <div class="nav-links">
+      <a href="index.html" class="nav-link"><i class="fa-solid fa-house"></i> Home</a>
+      <a href="products.html" class="nav-link"><i class="fa-solid fa-grid-2"></i> Products</a>
+      <a href="categories.html" class="nav-link"><i class="fa-solid fa-list"></i> Categories</a>
+      <a href="cart.html" class="nav-link"><i class="fa-solid fa-shopping-cart"></i> Cart</a>
+      <a href="profile.html" class="nav-link"><i class="fa-solid fa-user"></i> Profile</a>
+    </div>
+    <div class="nav-actions">
+      <div class="search-wrap">
+        <i class="fa-solid fa-search"></i>
+        <input type="text" id="global-search" placeholder="Search products…" />
+      </div>
+      <a href="cart.html" class="cart-btn">
+        <i class="fa-solid fa-shopping-cart"></i>
+        <span class="cart-badge cart-count">0</span>
+      </a>
+      <button class="theme-btn" title="Toggle theme"><i class="fa-solid fa-moon"></i></button>
+      <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+
+<div class="mobile-nav" id="mobile-nav">
+  <a href="index.html" class="nav-link"><i class="fa-solid fa-house"></i> Home</a>
+  <a href="products.html" class="nav-link"><i class="fa-solid fa-grid-2"></i> Products</a>
+  <a href="categories.html" class="nav-link"><i class="fa-solid fa-list"></i> Categories</a>
+  <a href="cart.html" class="nav-link"><i class="fa-solid fa-shopping-cart"></i> Cart</a>
+  <a href="profile.html" class="nav-link"><i class="fa-solid fa-user"></i> Profile</a>
+</div>
+
+<div class="toast-container" id="toast-container"></div>
+
+<div class="page-wrapper">
+
+  <!-- Page Hero -->
+  <div class="page-hero">
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="index.html">Home</a>
+        <i class="fa-solid fa-chevron-right"></i>
+        <span>Products</span>
+      </div>
+      <h1><i class="fa-solid fa-grid-2" style="color:var(--accent);margin-right:12px"></i>All Products</h1>
+      <p>Browse our complete range of premium tech products.</p>
+    </div>
+  </div>
+
+  <div class="container">
+
+    <!-- Filter & Search Bar -->
+    <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;margin-bottom:12px">
+      <div class="filter-bar" style="margin-bottom:0;flex-wrap:wrap">
+        <button class="filter-btn active" data-filter="all"><i class="fa-solid fa-border-all"></i> All</button>
+        <button class="filter-btn" data-filter="Laptops"><i class="fa-solid fa-laptop"></i> Laptops</button>
+        <button class="filter-btn" data-filter="Smartphones"><i class="fa-solid fa-mobile-screen"></i> Smartphones</button>
+        <button class="filter-btn" data-filter="Accessories"><i class="fa-solid fa-headphones"></i> Accessories</button>
+        <button class="filter-btn" data-filter="Smart Devices"><i class="fa-solid fa-watch"></i> Smart Devices</button>
+        <button class="filter-btn" data-filter="Networking"><i class="fa-solid fa-wifi"></i> Networking</button>
+      </div>
+      <div class="search-wrap" style="position:relative">
+        <i class="fa-solid fa-search"></i>
+        <input type="text" id="product-search" placeholder="Filter products…" style="width:220px" />
+      </div>
+    </div>
+
+    <!-- Products Grid -->
+    <div id="products-grid" style="margin-bottom:60px">
+      <!-- Rendered by script.js -->
+    </div>
+
+    <div id="no-results" style="display:none;text-align:center;padding:60px 0;color:var(--text-muted)">
+      <i class="fa-solid fa-magnifying-glass" style="font-size:3rem;display:block;margin-bottom:16px"></i>
+      <h3>No products found</h3>
+      <p>Try a different search term or category.</p>
+    </div>
+
+  </div>
+</div>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-bottom">
+      <span>© 2025 Sharon's Online Shopping System. All rights reserved.</span>
+      <a href="index.html" style="color:var(--text-muted);font-size:0.82rem"><i class="fa-solid fa-arrow-left" style="margin-right:6px"></i>Back to Home</a>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

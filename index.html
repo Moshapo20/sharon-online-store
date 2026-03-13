@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sharon's Online Shopping System</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+
+<!-- ── Navbar ── -->
+<nav class="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <div class="nav-logo-icon"><i class="fa-solid fa-bolt"></i></div>
+      Sharon's <span>Shop</span>
+    </a>
+    <div class="nav-links">
+      <a href="index.html" class="nav-link"><i class="fa-solid fa-house"></i> Home</a>
+      <a href="products.html" class="nav-link"><i class="fa-solid fa-grid-2"></i> Products</a>
+      <a href="categories.html" class="nav-link"><i class="fa-solid fa-list"></i> Categories</a>
+      <a href="cart.html" class="nav-link"><i class="fa-solid fa-shopping-cart"></i> Cart</a>
+      <a href="profile.html" class="nav-link"><i class="fa-solid fa-user"></i> Profile</a>
+    </div>
+    <div class="nav-actions">
+      <div class="search-wrap">
+        <i class="fa-solid fa-search"></i>
+        <input type="text" id="global-search" placeholder="Search products…" />
+      </div>
+      <a href="cart.html" class="cart-btn">
+        <i class="fa-solid fa-shopping-cart"></i>
+        <span class="cart-badge cart-count">0</span>
+      </a>
+      <button class="theme-btn" title="Toggle theme"><i class="fa-solid fa-moon"></i></button>
+      <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile Nav -->
+<div class="mobile-nav" id="mobile-nav">
+  <a href="index.html" class="nav-link"><i class="fa-solid fa-house"></i> Home</a>
+  <a href="products.html" class="nav-link"><i class="fa-solid fa-grid-2"></i> Products</a>
+  <a href="categories.html" class="nav-link"><i class="fa-solid fa-list"></i> Categories</a>
+  <a href="cart.html" class="nav-link"><i class="fa-solid fa-shopping-cart"></i> Cart</a>
+  <a href="profile.html" class="nav-link"><i class="fa-solid fa-user"></i> Profile</a>
+</div>
+
+<!-- Toast Container -->
+<div class="toast-container" id="toast-container"></div>
+
+<div class="page-wrapper">
+
+  <!-- ── Hero ── -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-grid-lines"></div>
+    <div class="hero-inner">
+      <div class="hero-content">
+        <div class="hero-tag">
+          <i class="fa-solid fa-bolt"></i>
+          New Arrivals 2025
+        </div>
+        <h1>Upgrade Your <em>Tech</em> Today</h1>
+        <p>Discover cutting-edge laptops, smartphones, and smart devices. Premium technology delivered to your door across South Africa.</p>
+        <div class="hero-actions">
+          <a href="products.html" class="btn btn-primary btn-lg">
+            <i class="fa-solid fa-bag-shopping"></i> Shop Now
+          </a>
+          <a href="categories.html" class="btn btn-secondary btn-lg">
+            <i class="fa-solid fa-list"></i> Browse Categories
+          </a>
+        </div>
+        <div class="hero-stats">
+          <div class="hero-stat">
+            <strong>500+</strong>
+            <span>Products</span>
+          </div>
+          <div class="hero-stat">
+            <strong>50K+</strong>
+            <span>Happy Customers</span>
+          </div>
+          <div class="hero-stat">
+            <strong>Free</strong>
+            <span>Shipping over R5K</span>
+          </div>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="hero-device-card">
+          <div class="device-icon"><img src="pictures/gaming-laptop.png" alt="Gaming Laptop Pro" style="width:100%;height:200px;object-fit:cover;border-radius:12px" onerror="this.style.display='none';this.nextElementSibling.style.display='block'" /><span style="display:none;font-size:3rem">💻</span></div>
+          <div class="device-name">Gaming Laptop Pro</div>
+          <div class="device-price">R18,999</div>
+          <div style="margin-top:16px;display:flex;gap:8px">
+            <div style="width:10px;height:10px;background:#ef4444;border-radius:50%"></div>
+            <div style="width:10px;height:10px;background:#f59e0b;border-radius:50%"></div>
+            <div style="width:10px;height:10px;background:#22c55e;border-radius:50%"></div>
+          </div>
+        </div>
+        <div class="hero-float-badge float-badge-1">
+          <div class="badge-dot"></div>
+          <span>In Stock · Ships Today</span>
+        </div>
+        <div class="hero-float-badge float-badge-2">
+          <i class="fa-solid fa-star" style="color:#f59e0b"></i>
+          <span>4.9 · 2.4k Reviews</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Categories ── -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag"><i class="fa-solid fa-list"></i> Shop by Category</div>
+        <h2>Find What You Need</h2>
+        <p>Explore our curated collections of the latest tech products.</p>
+      </div>
+      <div class="category-grid">
+        <a href="categories.html?cat=Laptops" class="category-card">
+          <div class="cat-icon">💻</div>
+          <div class="cat-name">Laptops</div>
+          <div class="cat-count">3 products</div>
+        </a>
+        <a href="categories.html?cat=Smartphones" class="category-card">
+          <div class="cat-icon">📱</div>
+          <div class="cat-name">Smartphones</div>
+          <div class="cat-count">3 products</div>
+        </a>
+        <a href="categories.html?cat=Accessories" class="category-card">
+          <div class="cat-icon">🎧</div>
+          <div class="cat-name">Accessories</div>
+          <div class="cat-count">5 products</div>
+        </a>
+        <a href="categories.html?cat=Smart+Devices" class="category-card">
+          <div class="cat-icon">⌚</div>
+          <div class="cat-name">Smart Devices</div>
+          <div class="cat-count">3 products</div>
+        </a>
+        <a href="categories.html?cat=Networking" class="category-card">
+          <div class="cat-icon">📡</div>
+          <div class="cat-name">Networking</div>
+          <div class="cat-count">2 products</div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Featured Products ── -->
+  <section class="section section-alt">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag"><i class="fa-solid fa-fire"></i> Top Picks</div>
+        <h2>Featured Products</h2>
+        <p>Our best-selling tech products, handpicked for you.</p>
+      </div>
+      <div class="product-grid" id="featured-grid">
+        <!-- Rendered by JS -->
+      </div>
+      <div style="text-align:center;margin-top:36px">
+        <a href="products.html" class="btn btn-ghost btn-lg"><i class="fa-solid fa-arrow-right"></i> View All Products</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Promo Banners ── -->
+  <section class="section">
+    <div class="container">
+      <div class="promo-grid">
+        <div class="promo-card promo-card-1">
+          <div>
+            <div style="font-size:0.8rem;opacity:0.7;text-transform:uppercase;letter-spacing:0.1em;font-weight:700;margin-bottom:10px">Limited Offer</div>
+            <h3>Free Shipping on Orders Over R5,000</h3>
+            <p>Shop your favourite tech and enjoy free delivery anywhere in South Africa.</p>
+            <a href="products.html" class="btn" style="background:white;color:#1e3a5f;margin-top:8px"><i class="fa-solid fa-truck"></i> Shop Now</a>
+          </div>
+          <div class="promo-icon"><i class="fa-solid fa-truck"></i></div>
+        </div>
+        <div class="promo-card promo-card-2">
+          <div>
+            <div style="font-size:0.8rem;opacity:0.7;text-transform:uppercase;letter-spacing:0.1em;font-weight:700;margin-bottom:10px">New Arrivals</div>
+            <h3>Latest Smartphones & Smart Devices</h3>
+            <p>Be the first to own the newest tech. New drops every week.</p>
+            <a href="categories.html" class="btn" style="background:white;color:#2d1b69;margin-top:8px"><i class="fa-solid fa-mobile-screen"></i> Explore</a>
+          </div>
+          <div class="promo-icon"><i class="fa-solid fa-mobile-screen"></i></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<!-- ── Footer ── -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">Sharon's <span style="color:var(--accent)">Shop</span></div>
+        <p class="footer-desc">Premium tech products delivered to your door. Quality, speed, and reliability — every time.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Shop</h4>
+        <ul>
+          <li><a href="products.html">All Products</a></li>
+          <li><a href="categories.html?cat=Laptops">Laptops</a></li>
+          <li><a href="categories.html?cat=Smartphones">Smartphones</a></li>
+          <li><a href="categories.html?cat=Accessories">Accessories</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Account</h4>
+        <ul>
+          <li><a href="profile.html">My Profile</a></li>
+          <li><a href="profile.html#orders">My Orders</a></li>
+          <li><a href="cart.html">My Cart</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Help</h4>
+        <ul>
+          <li><a href="#">FAQ</a></li>
+          <li><a href="#">Returns</a></li>
+          <li><a href="#">Shipping Info</a></li>
+          <li><a href="#">Contact Us</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 Sharon's Online Shopping System. All rights reserved.</span>
+      <span style="display:flex;gap:16px">
+        <a href="#" style="color:var(--text-muted)"><i class="fa-brands fa-facebook"></i></a>
+        <a href="#" style="color:var(--text-muted)"><i class="fa-brands fa-instagram"></i></a>
+        <a href="#" style="color:var(--text-muted)"><i class="fa-brands fa-twitter"></i></a>
+      </span>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+<script>
+  // Render featured products (first 4)
+  const featured = [1, 4, 7, 12];
+  document.getElementById('featured-grid').innerHTML =
+    featured.map(id => {
+      const p = PRODUCTS.find(x => x.id === id);
+      return p ? renderProductCard(p) : '';
+    }).join('');
+</script>
+</body>
+</html>

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Categories — Sharon's Online Shopping System</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <div class="nav-logo-icon"><i class="fa-solid fa-bolt"></i></div>
+      Sharon's <span>Shop</span>
+    </a>
+    <div class="nav-links">
+      <a href="index.html" class="nav-link"><i class="fa-solid fa-house"></i> Home</a>
+      <a href="products.html" class="nav-link"><i class="fa-solid fa-grid-2"></i> Products</a>
+      <a href="categories.html" class="nav-link"><i class="fa-solid fa-list"></i> Categories</a>
+      <a href="cart.html" class="nav-link"><i class="fa-solid fa-shopping-cart"></i> Cart</a>
+      <a href="profile.html" class="nav-link"><i class="fa-solid fa-user"></i> Profile</a>
+    </div>
+    <div class="nav-actions">
+      <div class="search-wrap">
+        <i class="fa-solid fa-search"></i>
+        <input type="text" id="global-search" placeholder="Search products…" />
+      </div>
+      <a href="cart.html" class="cart-btn">
+        <i class="fa-solid fa-shopping-cart"></i>
+        <span class="cart-badge cart-count">0</span>
+      </a>
+      <button class="theme-btn" title="Toggle theme"><i class="fa-solid fa-moon"></i></button>
+      <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+
+<div class="mobile-nav" id="mobile-nav">
+  <a href="index.html" class="nav-link"><i class="fa-solid fa-house"></i> Home</a>
+  <a href="products.html" class="nav-link"><i class="fa-solid fa-grid-2"></i> Products</a>
+  <a href="categories.html" class="nav-link"><i class="fa-solid fa-list"></i> Categories</a>
+  <a href="cart.html" class="nav-link"><i class="fa-solid fa-shopping-cart"></i> Cart</a>
+  <a href="profile.html" class="nav-link"><i class="fa-solid fa-user"></i> Profile</a>
+</div>
+
+<div class="toast-container" id="toast-container"></div>
+
+<div class="page-wrapper">
+
+  <!-- Page Hero -->
+  <div class="page-hero">
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="index.html">Home</a>
+        <i class="fa-solid fa-chevron-right"></i>
+        <span>Categories</span>
+      </div>
+      <h1><i class="fa-solid fa-list" style="color:var(--accent);margin-right:12px"></i>Browse by Category</h1>
+      <p>Choose a category to explore products tailored to your needs.</p>
+    </div>
+  </div>
+
+  <div class="container">
+
+    <!-- Category Cards -->
+    <div style="margin-bottom:48px">
+      <div class="category-grid" style="grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));margin-bottom:0">
+        <div class="category-card" onclick="filterByCategory('Laptops')">
+          <div class="cat-icon" style="font-size:2rem">💻</div>
+          <div class="cat-name">Laptops</div>
+          <div class="cat-count">3 products</div>
+          <div style="margin-top:12px;font-size:0.78rem;color:var(--accent);font-weight:600">From R9,999</div>
+        </div>
+        <div class="category-card" onclick="filterByCategory('Smartphones')">
+          <div class="cat-icon" style="font-size:2rem">📱</div>
+          <div class="cat-name">Smartphones</div>
+          <div class="cat-count">3 products</div>
+          <div style="margin-top:12px;font-size:0.78rem;color:var(--accent);font-weight:600">From R7,499</div>
+        </div>
+        <div class="category-card" onclick="filterByCategory('Accessories')">
+          <div class="cat-icon" style="font-size:2rem">🎧</div>
+          <div class="cat-name">Accessories</div>
+          <div class="cat-count">5 products</div>
+          <div style="margin-top:12px;font-size:0.78rem;color:var(--accent);font-weight:600">From R599</div>
+        </div>
+        <div class="category-card" onclick="filterByCategory('Smart Devices')">
+          <div class="cat-icon" style="font-size:2rem">⌚</div>
+          <div class="cat-name">Smart Devices</div>
+          <div class="cat-count">3 products</div>
+          <div style="margin-top:12px;font-size:0.78rem;color:var(--accent);font-weight:600">From R1,099</div>
+        </div>
+        <div class="category-card" onclick="filterByCategory('Networking')">
+          <div class="cat-icon" style="font-size:2rem">📡</div>
+          <div class="cat-name">Networking</div>
+          <div class="cat-count">2 products</div>
+          <div style="margin-top:12px;font-size:0.78rem;color:var(--accent);font-weight:600">From R999</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Active Category Label -->
+    <div id="active-cat-label" style="display:none;margin-bottom:20px">
+      <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px">
+        <h2 id="active-cat-name" style="font-size:1.4rem"></h2>
+        <button onclick="showAll()" class="btn btn-secondary btn-sm"><i class="fa-solid fa-xmark"></i> Show All</button>
+      </div>
+    </div>
+
+    <!-- Products Grid -->
+    <div id="cat-products-grid" class="product-grid" style="margin-bottom:60px">
+      <!-- Rendered by JS -->
+    </div>
+
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-bottom">
+      <span>© 2025 Sharon's Online Shopping System. All rights reserved.</span>
+      <a href="index.html" style="color:var(--text-muted);font-size:0.82rem"><i class="fa-solid fa-arrow-left" style="margin-right:6px"></i>Back to Home</a>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+<script>
+  let currentCategory = 'all';
+
+  function renderCategoryProducts(cat) {
+    const grid = document.getElementById('cat-products-grid');
+    const products = cat === 'all' ? PRODUCTS : PRODUCTS.filter(p => p.category === cat);
+    grid.innerHTML = products.map(p => renderProductCard(p)).join('');
+  }
+
+  function filterByCategory(cat) {
+    currentCategory = cat;
+    renderCategoryProducts(cat);
+    document.getElementById('active-cat-label').style.display = 'flex';
+    document.getElementById('active-cat-name').innerHTML =
+      `<i class="fa-solid fa-tag" style="color:var(--accent);margin-right:10px"></i>${cat}`;
+    document.getElementById('active-cat-label').style.display = 'block';
+    document.getElementById('cat-products-grid').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  function showAll() {
+    currentCategory = 'all';
+    renderCategoryProducts('all');
+    document.getElementById('active-cat-label').style.display = 'none';
+  }
+
+  // Check URL param
+  const urlParams = new URLSearchParams(location.search);
+  const catParam = urlParams.get('cat');
+
+  renderCategoryProducts('all');
+  if (catParam) {
+    setTimeout(() => filterByCategory(catParam), 100);
+  }
+</script>
+</body>
+</html>
